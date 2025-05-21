@@ -5,7 +5,6 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 class AlunniController
 {
   public function index(Request $request, Response $response, $args){
-    sleep(3);
     $mysqli_connection = new MySQLi('my_mariadb', 'root', 'ciccio', 'scuola');
     $result = $mysqli_connection->query("SELECT * FROM alunni");
     $results = $result->fetch_all(MYSQLI_ASSOC);
@@ -43,7 +42,6 @@ class AlunniController
   }
 
   public function update(Request $request, Response $response, $args){
-    sleep(1);
     $mysqli_connection = new MySQLi('my_mariadb', 'root', 'ciccio', 'scuola');
     $id = $args['id'];
     $body = json_decode($request->getBody()->getContents(), true);
@@ -59,7 +57,6 @@ class AlunniController
   }
 
   public function delete(Request $request, Response $response, $args){
-    sleep(1);
     $mysqli_connection = new MySQLi('my_mariadb', 'root', 'ciccio', 'scuola');
     $id = $args['id'];
     $result = $mysqli_connection->query("DELETE FROM alunni WHERE id= '$id'");
@@ -72,7 +69,6 @@ class AlunniController
   }
 
   public function search(Request $request, Response $response, $args){
-    sleep(1);
     $mysqli_connection = new MySQLi('my_mariadb', 'root', 'ciccio', 'scuola');
     $parametri = $request->getQueryParams();
     $inizioNome = $parametri['search'] ?? null;

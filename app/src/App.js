@@ -38,14 +38,15 @@ function App() {
           <table border="1">
           {alunni.map(function(a){
             return(
-             <AlunniRow alunno={a} carica={caricaAlunni}/>
+             <AlunniRow  alunno={a} carica={caricaAlunni}/>
             )
           })}
         </table>
         )}
         </>    
       }
-      <InserisciAlunno carica={caricaAlunni}/>
+
+      <InserisciAlunno  carica={caricaAlunni}/>
     </div>
   );
 }

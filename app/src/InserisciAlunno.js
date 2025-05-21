@@ -5,20 +5,18 @@ export default function InserisciAlunno(props){
     const [cognome,setCogmome] = useState("");
     const carica = props.carica;
 
-    function impostaNome(evento){
-        setNome(evento.target.value);
-    }
-
-
+    
 
     async function creaAlunno(){
         await fetch(`http://localhost:8080/alunni`, 
         {method:"POST",
         header: {"Content-Type": "application/json"},
-        body: JSON.stringify({nome: nome, cognome: cognome})});
+        body: JSON.stringify({nome: nome, cognome: cognome})
+        });
         carica();
 
     }
+    
 
     return(
         <>
@@ -29,7 +27,7 @@ export default function InserisciAlunno(props){
             <br />
             <form>
             <label>Nome:</label>
-            <input type="text" onChange={impostaNome}/>
+            <input type="text" onChange={(e)=>{setNome(e.target.value)}}/>
             <br /><br />
             <label>Cognome:</label>
             <input type="text" onChange={(e)=>{setCogmome(e.target.value)}}/>
